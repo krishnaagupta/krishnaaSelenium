@@ -1,8 +1,8 @@
 package pageObjectModel;
 
-public class Test1 {
+public class TestCases {
 
-	public Test1() {
+	public TestCases() {
 		// TODO Auto-generated constructor stub
 	}
 
