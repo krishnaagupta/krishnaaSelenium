@@ -17,7 +17,7 @@
 	<configuration>
 	<suiteXmlFiles> 
 	<suiteXmlFile> 
-	Suite-Runners/Page1.xml
+	Page1.xml
 	</suiteXmlFile> 
 	</suiteXmlFiles>
 	</configuration>
