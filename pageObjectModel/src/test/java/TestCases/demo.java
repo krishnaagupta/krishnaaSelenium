@@ -7,5 +7,6 @@ public class demo {
 	}
 	public void demo2() {
 		// TODO Auto-generated constructor stub
+	System.out.println("hi akjshd");
 	}
 }
