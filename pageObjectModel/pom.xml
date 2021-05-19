@@ -17,7 +17,7 @@
 	<configuration>
 	<suiteXmlFiles> 
 	<suiteXmlFile> 
-	Users/krishnaagupta/eclipse-workspace/krishnaaSelenium/pageObjectModel/Suite-Runners/Page1.xml
+	Suite-Runners/Page1.xml
 	</suiteXmlFile> 
 	</suiteXmlFiles>
 	</configuration>
