@@ -62,7 +62,7 @@ public class RestAssuredOperations {
 		newMap.put("token",sToken);	
 		RestAssured.baseURI=sURL;
 		// adding a data the json will have only four new data 
-		Response res=RestAssured.given().contentType("application/json").headers(newMap).body("{\"accountno\": \"TA-4491001\", \"departmentno\": \"7\", \"salary\": \"9000\", \"pincode\": \"908760\"}").post();
+		Response res=RestAssured.given().contentType("application/json").headers(newMap).body("{\"accountno\": \"TA-141414\", \"departmentno\": \"7\", \"salary\": \"9000\", \"pincode\": \"908760\"}").post();
 		System.out.println("Add data"+res.getStatusCode()+res.statusLine());
 	}
 
@@ -74,7 +74,7 @@ public class RestAssuredOperations {
 		newMap.put("token",sToken);	
 		RestAssured.baseURI=sURL;
 		// adding a data the json will have only four new data 
-		Response res=RestAssured.given().contentType("application/json").headers(newMap).body("{\"accountno\":\"TA-4491001\",\"departmentno\":16,\"salary\":9000,\"pincode\":908767,\"userid\":\"xfvwphFcCCoaYVEl5Zb6\",\"id\":\"TXkShPdKhxIaiBhMrUGo\"}").put();
+		Response res=RestAssured.given().contentType("application/json").headers(newMap).body("{\"accountno\":\"TA-141414\",\"departmentno\":16,\"salary\":9000,\"pincode\":908767,\"userid\":\"xfvwphFcCCoaYVEl5Zb6\",\"id\":\"TXkShPdKhxIaiBhMrUGo\"}").put();
 		System.out.println("Edit data"+res.getStatusCode()+res.statusLine());
 	}
 //delete
