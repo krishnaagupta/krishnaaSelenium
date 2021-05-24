@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="All test cases">
+	<parameter name= "BrowserName" value="chrome"> </parameter>
   <test name="Test">
     <classes>
-      <class name="TestCases.VerifyLoginFunctionality"/>
+     <class name="TestCases.VerifyLoginFunctionality"/> 
+     <class name="TestCases.TC3CheckRememberMe"/> 
+     <class name="TestCases.TcUserDropDown"/>  
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
+
+

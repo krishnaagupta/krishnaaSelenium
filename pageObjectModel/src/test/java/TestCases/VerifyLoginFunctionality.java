@@ -47,7 +47,7 @@ public class VerifyLoginFunctionality extends BaseTest {
 			driver.close();
 		}
 
-		@Test
+		@Test(priority=1)
 		public void VerifyLoginErrorMessage01() throws IOException {
 
 			driver = getDriver("Chrome");
@@ -85,7 +85,7 @@ public class VerifyLoginFunctionality extends BaseTest {
 
 			//WebElement sErrorMsg = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.errormsg.xpath")));
 
-			AssertJUnit.assertEquals(lp.errorMsg.getText(), oDataUtils.ReadWebElementProperties("login.errormsg"));
+			sa.assertEquals(lp.errorMsg.getText(), oDataUtils.ReadWebElementProperties("login.errormsg"));
 
 			sa.assertAll();
 			if (lp.errorMsg.getText().equals(oDataUtils.ReadWebElementProperties("login.errormsg"))) {
@@ -97,14 +97,14 @@ public class VerifyLoginFunctionality extends BaseTest {
 			}
 
 		}
-/*
-		//@Test
-		public void VerifyLoginErrorMessage02(Method mName) throws IOException {
+
+		@Test(priority=2)
+		public void VerifyLogin(Method mName) throws IOException {
 
 			driver = getDriver("Chrome");
 			driver.get(oDataUtils.ReadWebElementProperties("App.URL"));
 
-			AssertJUnit.assertEquals(driver.getTitle(), "Login | Salesforce");
+			sa.assertEquals(driver.getTitle(), "Login | Salesforce");
 
 			test.info("Application is launched");
 
@@ -114,7 +114,7 @@ public class VerifyLoginFunctionality extends BaseTest {
 				oCommonUtilities.enterText(sUserName, oDataUtils.ReadAccountProperties("prodaccount.name"), "USERNAME");
 //				sUserName.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.name"));
 			}
-			AssertJUnit.assertNotNull(sUserName.getText(), "krishnaa.mar21@xyz.com");
+			sa.assertNotNull(sUserName.getText(), "krishnaa.mar21@xyz.com");
 			test.info("Username is Entered");
 
 			WebElement sPassword = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.password.xpath")));
@@ -127,13 +127,13 @@ public class VerifyLoginFunctionality extends BaseTest {
 			}
 			//sPassword.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.Wrong.password"));
 			//sa.assertEquals(sPassword.getText(), "one1two2");
-			AssertJUnit.assertEquals(oDataUtils.ReadAccountProperties("prodaccount.password"), "one1two2");
+			sa.assertEquals(oDataUtils.ReadAccountProperties("prodaccount.password"), "one1two2");
 			WebElement sLoginButton = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.login.xpath")));
 
 			if (oCommonUtilities.waitForElementVisible(sLoginButton))
 				sLoginButton.click();
 
-			AssertJUnit.assertTrue(driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage")));
+			sa.assertTrue(driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage")));
 			if (driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage"))) {
 
 				test.pass(mName.getName()+" PASSED");
@@ -143,6 +143,6 @@ public class VerifyLoginFunctionality extends BaseTest {
 			}
 			sa.assertAll();
 
-		}*/
+		}
 
 }

@@ -78,7 +78,8 @@ public class CommonUtilities {
 		String addDate = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
 		//String destinationPath = System.getProperty("user.dir") + "/Reports/Screenshots/" + addDate + ".PNG";
 		// my String destinationPath = System.getProperty("/Users/krishnaagupta/eclipse-workspace/javaprog/Testmaven/target/HtmlReports" )+ addDate + ".PNG";
-		String destinationPath = AppConstants.EXTENT_HTML_REPORT_PATH+ addDate + ".PNG";
+		//String destinationPath = AppConstants.EXTENT_HTML_REPORT_PATH+"/"+addDate + ".PNG";
+		String destinationPath = addDate + ".PNG";
 		File srcfile = screenshot.getScreenshotAs(OutputType.FILE);
 		File dstfile = new File(destinationPath);
 		FileUtils.copyFile(srcfile, dstfile);

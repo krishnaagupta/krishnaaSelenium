@@ -1,0 +1,28 @@
+{
+  "login":
+    {
+      "username": "krishnaa.gupta@gmail.com",
+      "password": "krishnaa123"
+    },
+  "data": [
+    {
+      "accountno": "TA-22061984",
+      "departmentno": "1",
+      "pincode": "763291",
+      "salary": "4000"
+    },
+    {
+      "accountno": "99999123",
+      "departmentno": "1",
+      "salary": "5333",
+      "pincode": "901234"
+    }
+  ]
+  "loginincorrect":
+    {
+      "username": "krishnaa.gupta@gmail.com",
+      "password": "krishnaa"
+    },
+
+}
+
