@@ -31,6 +31,7 @@ public class TC3CheckRemeberMe extends BaseTest {
 	}
 	@Test
 	public void rememberme(Method mName) throws IOException, InterruptedException {
+		
 		driver = getDriver("Chrome");
 		lp=new LogInpage(driver);
 		driver.get(oDataUtils.ReadWebElementProperties("App.URL"));
@@ -91,7 +92,7 @@ public class TC3CheckRemeberMe extends BaseTest {
 		sa.assertTrue(driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage")));
 		if (driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage"))) {
  
-			test.pass((mName.getName())+" PASSED");
+			//test.pass((mName.getName())+" PASSED");
 			test.info("Login successful");
 			test.addScreenCaptureFromPath(oCommonUtilities.takeScreenshot());
 			

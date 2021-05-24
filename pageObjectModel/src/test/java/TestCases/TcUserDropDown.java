@@ -32,41 +32,48 @@ public class TcUserDropDown extends BaseTest{
 		driver.close();
 	}
 
-public void Login(String BrowserName) throws IOException ,InterruptedException{
-	driver = getDriver("Chrome");
-	driver.get(oDataUtils.ReadWebElementProperties("App.URL"));
+	public void Login(String BrowserName) throws IOException ,InterruptedException{
+		driver = getDriver("Chrome");
+		driver.get(oDataUtils.ReadWebElementProperties("App.URL"));
 
-	sa.assertEquals(driver.getTitle(), "Login | Salesforce");
+		sa.assertEquals(driver.getTitle(), "Login | Salesforce");
 
-	test.info("Application is launched");
+		test.info("Application is launched");
 
-	WebElement sUserName = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.username.xpath")));
+		WebElement sUserName = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.username.xpath")));
 
-	if (oCommonUtilities.waitForElementVisible(sUserName)) {
-		oCommonUtilities.enterText(sUserName, oDataUtils.ReadAccountProperties("prodaccount.name"), "USERNAME");
-//		sUserName.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.name"));
+		if (oCommonUtilities.waitForElementVisible(sUserName)) {
+			oCommonUtilities.enterText(sUserName, oDataUtils.ReadAccountProperties("prodaccount.name"), "USERNAME");
+			//		sUserName.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.name"));
+		}
+		sa.assertNotNull(sUserName.getText(), "krishnaa.mar21@xyz.com");
+		test.info("Username is Entered");
+
+		WebElement sPassword = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.password.xpath")));
+
+		if (oCommonUtilities.waitForElementVisible(sPassword)) {
+			sPassword.clear();
+			sPassword.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.password"));
+			System.out.println("check pwd:"+ sPassword.getText());
+			test.info("Password is entered");
+		}
+		sa.assertEquals(oDataUtils.ReadAccountProperties("prodaccount.password"), "one1two2");
+		WebElement sLoginButton = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.login.xpath")));
+
+		if (oCommonUtilities.waitForElementVisible(sLoginButton))
+			sLoginButton.click();
 	}
-	sa.assertNotNull(sUserName.getText(), "krishnaa.mar21@xyz.com");
-	test.info("Username is Entered");
 
-	WebElement sPassword = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.password.xpath")));
-
-	if (oCommonUtilities.waitForElementVisible(sPassword)) {
-		sPassword.clear();
-		sPassword.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.password"));
-		System.out.println("check pwd:"+ sPassword.getText());
-		test.info("Password is entered");
+	@Parameters({"BrowserName"})
+	@Test
+	public  void  Tc5UserDropdown(String BrowserName)throws IOException, InterruptedException {
+		Login (BrowserName);
 	}
-	sa.assertEquals(oDataUtils.ReadAccountProperties("prodaccount.password"), "one1two2");
-	WebElement sLoginButton = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.login.xpath")));
 
-	if (oCommonUtilities.waitForElementVisible(sLoginButton))
-		sLoginButton.click();
-}
+	@Parameters({"BrowserName"})
+	@Test
+	public  void  Tc9Logout(String BrowserName)throws IOException, InterruptedException {
+		Login (BrowserName);
 
-@Parameters({"BrowserName"})
-@Test
-public  void  Tc5UserDropdown(String BrowserName)throws IOException, InterruptedException {
-	Login (BrowserName);
-}
+	}
 }
