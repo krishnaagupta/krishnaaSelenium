@@ -5,22 +5,21 @@ import java.lang.reflect.Method;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import Base.BaseTest;
+import Pages.CreateAccount;
 import Pages.LogInpage;
 import Pages.UserPage;
-import Base.BaseTest;
 
-public class TcUserDropDown extends BaseTest{
+public class TCCreateAccount extends BaseTest {
 
 	SoftAssert sa = new SoftAssert();
 	public LogInpage  lp;
 	public UserPage up;
+	public CreateAccount cp;
 	@BeforeMethod
 	public void CreateReport(Method sTestMethod) {
 		test = extent.createTest(sTestMethod.getName());
@@ -35,6 +34,10 @@ public class TcUserDropDown extends BaseTest{
 	public void Login(String BrowserName) throws IOException ,InterruptedException{
 		driver = getDriver("Chrome");
 		driver.get(oDataUtils.ReadWebElementProperties("App.URL"));
+		
+		lp=new LogInpage(driver);// Important step initilaize both the lp and up ojects 
+		 up=new UserPage(driver);// Important step initilaize both the lp and up ojects
+		 cp=new CreateAccount(driver);// Important step initilaize both the lp and up ojects
 
 		sa.assertEquals(driver.getTitle(), "Login | Salesforce");
 
@@ -44,7 +47,7 @@ public class TcUserDropDown extends BaseTest{
 
 		if (oCommonUtilities.waitForElementVisible(sUserName)) {
 			oCommonUtilities.enterText(sUserName, oDataUtils.ReadAccountProperties("prodaccount.name"), "USERNAME");
-			//		sUserName.sendKeys(oDataUtils.ReadAccountProperties("prodaccount.name"));
+		
 		}
 		sa.assertNotNull(sUserName.getText(), "krishnaa.mar21@xyz.com");
 		test.info("Username is Entered");
@@ -60,20 +63,11 @@ public class TcUserDropDown extends BaseTest{
 		sa.assertEquals(oDataUtils.ReadAccountProperties("prodaccount.password"), "one1two2");
 		WebElement sLoginButton = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.login.xpath")));
 
-		if (oCommonUtilities.waitForElementVisible(sLoginButton))
+		if (oCommonUtilities.waitForElementVisible(sLoginButton)) {
 			sLoginButton.click();
+			System.out.println("login");	
+		}
 	}
 
-	@Parameters({"BrowserName"})
-	@Test
-	public  void  Tc5UserDropdown(String BrowserName)throws IOException, InterruptedException {
-		Login (BrowserName);
-	}
 
-	@Parameters({"BrowserName"})
-	@Test
-	public  void  Tc9Logout(String BrowserName)throws IOException, InterruptedException {
-		Login (BrowserName);
-
-	}
 }

@@ -85,7 +85,7 @@ public class TC3CheckRemeberMe extends BaseTest {
 
 		WebElement sLoginButton1 = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.login.xpath")));
 		if (oCommonUtilities.waitForElementVisible(lp.Login))
-			sLoginButton1.click();
+			lp.Login.click();
 		test.addScreenCaptureFromPath(oCommonUtilities.takeScreenshot());
 		test.info("loginclicked");
 		//System.out.println("checkpath"+ driver.getCurrentUrl()+"properitie file "+oDataUtils.ReadPageURLproperties("Salesforce.HomePage"));
