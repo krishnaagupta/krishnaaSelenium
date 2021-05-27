@@ -89,8 +89,8 @@ public class TC3CheckRemeberMe extends BaseTest {
 		test.addScreenCaptureFromPath(oCommonUtilities.takeScreenshot());
 		test.info("loginclicked");
 		//System.out.println("checkpath"+ driver.getCurrentUrl()+"properitie file "+oDataUtils.ReadPageURLproperties("Salesforce.HomePage"));
-		sa.assertTrue(driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage")));
-		if (driver.getCurrentUrl().contains(oDataUtils.ReadPageURLproperties("Salesforce.HomePage"))) {
+		sa.assertTrue(driver.getCurrentUrl().contains(oDataUtils.ReadAccountProperties("Salesforce.HomePage")));
+		if (driver.getCurrentUrl().contains(oDataUtils.ReadAccountProperties("Salesforce.HomePage"))) {
  
 			//test.pass((mName.getName())+" PASSED");
 			test.info("Login successful");

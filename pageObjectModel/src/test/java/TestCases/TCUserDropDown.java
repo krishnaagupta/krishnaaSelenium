@@ -206,7 +206,7 @@ public class TCUserDropDown extends BaseTest{
 	}
 //@Test
 // test case7 Select "My settings" option from user menu for <username> drop down
-public  void  TC7MySetting(Method mName)throws IOException, InterruptedException {	
+	public  void  TC7MySetting(Method mName)throws IOException, InterruptedException {	
 		
 		String BrowserName="Chrome";
 		Login (BrowserName);
@@ -439,7 +439,8 @@ public  void  TC6MyProfile(Method mName)throws IOException, InterruptedException
 		if (oCommonUtilities.waitForElementVisible(up.photoSaveFinal)) {
 			up.photoSaveFinal.click();
 		}
-	
+		oCommonUtilities.logOut(driver);
+		sa.assertAll();	
 	}
 }
 

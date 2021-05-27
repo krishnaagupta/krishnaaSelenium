@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -114,7 +115,11 @@ public class CommonUtilities {
 		clickonElement(logout,"LogOut");
 		BaseTest.test.log(Status.INFO, "logoutClicked");
 	}
-
+	public  static void selectdateByJs( WebDriver driver,WebElement element,String date)
+	{
+			JavascriptExecutor js=((JavascriptExecutor)driver);
+			js.executeScript("arguments[0].setAttribute('value','"+date+"');", element);
+	}
 }
 
 
