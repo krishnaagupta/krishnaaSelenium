@@ -16,13 +16,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import Utilities.DataUtilities;
 
 import com.aventstack.extentreports.Status;
 
 import Base.BaseTest;
 
 public class CommonUtilities {
-
+ DataUtilities data=new DataUtilities();
 	public void enterText(WebElement element, String textToEnter, String elementName) {
 		if (element.isDisplayed()) {
 			element.sendKeys(textToEnter);
@@ -106,7 +107,7 @@ public class CommonUtilities {
 	
 	}
 
-	public void logOut(WebDriver driver) {
+	public void logOut(WebDriver driver) throws IOException {
 		// TODO Auto-generated method stub
 		WebElement usernavgi=driver.findElement(By.xpath("//*[@id=\"userNav\"]"));
 		clickonElement(usernavgi, "usernavgation click");		
@@ -114,6 +115,19 @@ public class CommonUtilities {
 		WebElement logout=driver.findElement(By.xpath("//*[@id=\"userNav-menuItems\"]/a[5]"));
 		clickonElement(logout,"LogOut");
 		BaseTest.test.log(Status.INFO, "logoutClicked");
+		//String logOutText="https://xyz-72f-dev-ed.my.salesforce.com/secur/logout.jsp";
+		Assert.assertEquals((driver.getCurrentUrl()),(data.ReadPageURLproperties("logout.text")));
+		//Assert.assertEquals((driver.getCurrentUrl()),(logOutText));
+		//System.out.println(driver.getCurrentUrl()+"---"+(data.ReadPageURLproperties("logout.text")));
+		if ((driver.getCurrentUrl()).equals(data.ReadPageURLproperties("logout.text"))) {
+			//System.out.println("pass");
+			BaseTest.test.pass("logout success");
+		} else {
+			//System.out.println("fail");
+			BaseTest.test.addScreenCaptureFromPath(takeScreenshot());
+			Assert.fail("logout fail");
+		}
+	
 	}
 	public  static void selectdateByJs( WebDriver driver,WebElement element,String date)
 	{

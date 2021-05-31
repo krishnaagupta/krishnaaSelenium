@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -29,16 +30,17 @@ public class TC3CheckRemeberMe extends BaseTest {
 		Thread.sleep(4000);
 		driver.close();
 	}
+	@Parameters({"BrowserName"})
 	@Test
-	public void rememberme(Method mName) throws IOException, InterruptedException {
-		
-		driver = getDriver("Chrome");
+	public void rememberme(Method mName,String BrowserName) throws IOException, InterruptedException {
+		//Login (BrowserName);
+		driver = getDriver(BrowserName);
 		lp=new LogInpage(driver);
 		driver.get(oDataUtils.ReadWebElementProperties("App.URL"));
 		sa.assertEquals(driver.getTitle(), "Login | Salesforce");
 		test.info("Application is launched");
 
-		
+
 
 		if (oCommonUtilities.waitForElementVisible(lp.userName)) {
 			oCommonUtilities.enterText(lp.userName, oDataUtils.ReadAccountProperties("prodaccount.name"), "USERNAME");
@@ -48,7 +50,7 @@ public class TC3CheckRemeberMe extends BaseTest {
 		sa.assertNotNull(lp.userName.getText(), "krishnaa.mar21@xyz.com");
 		test.info("Username is Entered");
 
-		
+
 
 		if (oCommonUtilities.waitForElementVisible(lp.password)) {
 			lp.password.clear();
@@ -57,31 +59,31 @@ public class TC3CheckRemeberMe extends BaseTest {
 			test.info("Password is entered");
 		}
 		System.out.println(oDataUtils.ReadAccountProperties("prodaccount.name") + oDataUtils.ReadAccountProperties("prodaccount.password"));
-		
+
 		//rememberme checkbox field
-	
-		
+
+
 		if (oCommonUtilities.waitForElementVisible(lp.rememberMe)) {
 			lp.rememberMe.click();
 		}
 		test.info("RememberMe Checked");
 		//test.addScreenCaptureFromPath(oCommonUtilities.takeScreenshot());
 		//sa.assertEquals(lp.password, "one1two2");
-		
-		
+
+
 		//if (oCommonUtilities.waitForElementVisible(lp.Login)) {
-			lp.Login.click();
+		lp.Login.click();
 		//}
-			//Thread.sleep(3000);
-		
+		//Thread.sleep(3000);
+
 		oCommonUtilities.logOut(driver);
-		
+
 		Thread.sleep(2000);
-		
+
 		sa.assertEquals(lp.remembermeUserName.getText(), "krishnaa.mar21@xyz.com");
-		
+
 		test.info("Username displayed is correct");
-		
+
 
 		WebElement sLoginButton1 = driver.findElement(By.xpath(oDataUtils.ReadWebElementProperties("we.login.xpath")));
 		if (oCommonUtilities.waitForElementVisible(lp.Login))
@@ -91,18 +93,18 @@ public class TC3CheckRemeberMe extends BaseTest {
 		//System.out.println("checkpath"+ driver.getCurrentUrl()+"properitie file "+oDataUtils.ReadPageURLproperties("Salesforce.HomePage"));
 		sa.assertTrue(driver.getCurrentUrl().contains(oDataUtils.ReadAccountProperties("Salesforce.HomePage")));
 		if (driver.getCurrentUrl().contains(oDataUtils.ReadAccountProperties("Salesforce.HomePage"))) {
- 
+
 			//test.pass((mName.getName())+" PASSED");
 			test.info("Login successful");
 			test.addScreenCaptureFromPath(oCommonUtilities.takeScreenshot());
-			
+
 		} else {
 			test.addScreenCaptureFromPath(oCommonUtilities.takeScreenshot());
 			Assert.fail((mName.getName())+"TC03 FAILED");
 		}
-		
+
 		sa.assertAll();
-	
+
 	}
-		
+
 }

@@ -4,11 +4,16 @@
 	<parameter name= "BrowserName" value="chrome"> </parameter>
   <test name="Test">
     <classes>
-    <!--  <class name="TestCases.VerifyLoginFunctionality"/> -->
-  <!--    <class name="TestCases.TC3CheckRememberMe"/> -->
-  <!--   <class name="TestCases.TC4ForgotPasswordAandB"/>-->
-     <class name="TestCases.TcUserDropDown"/>  
-      
+   <class name="TestCases.VerifyLoginFunctionality"/>
+     <class name="TestCases.TC3CheckRemeberMe"/> 
+ 	  <class name="TestCases.TC4ForgotPasswordAandB"/>
+     <class name="TestCases.TCUserDropDown"/>  
+      <class name="TestCases.TCCreateAccount"/>   
+       <class name="TestCases.TCCreateOppoturnity"/>  
+        <class name="TestCases.TCLeads"/>  
+         <class name="TestCases.TCContacts"/>  
+          <class name="TestCases.TCRamdomScenerio"/> 
+         
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
