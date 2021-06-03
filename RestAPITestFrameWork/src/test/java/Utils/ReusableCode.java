@@ -49,26 +49,31 @@ public class ReusableCode {
 		extent.attachReporter(htmlReporter);
 	}
 	
-	public static void login (String endPoint, String contentType) {
+	public static void login (String endPoint, String contentType,String bodyJson1) {
 	
 		//System.out.println("login="+getValueFromJson("login"));
-		Response res=RestAssured.given().contentType(contentType).body(getValueFromJson("login")).post();
+		Response res=RestAssured.given().contentType(contentType).body(getValueFromJson(bodyJson1)).post();
 		System.out.println("response="+res.asPrettyString());
-		HashMap<String, Object> maps = res.jsonPath().get("[0]");
-	     token = maps.get("token").toString();
-	     userid = maps.get("userid").toString();
-	     statusCode= res.getStatusCode();
+		System.out.println("status code="+statusCode);
+		statusCode= res.getStatusCode();
+		if (statusCode ==200 ||statusCode==201) {
+			HashMap<String, Object> maps = res.jsonPath().get("[0]");
+		     token = maps.get("token").toString();
+		     userid = maps.get("userid").toString();
+		}
+		     // statusCode= res.getStatusCode();
+	     
 	 }
-	public static void loginWrong (String endPoint, String contentType) {
-		
+	/*public static void loginWrong (String endPoint, String contentType,  String bodyjason) {
+		String bodyjason="loginWrong";
 		//System.out.println("login="+getValueFromJson("login"));
-		Response res=RestAssured.given().contentType(contentType).body(getValueFromJson("loginWrong")).post();
+		Response res=RestAssured.given().contentType(contentType).body(getValueFromJson(bodyjason)).post();
 		System.out.println("response="+res.asPrettyString());
 		HashMap<String, Object> maps = res.jsonPath().get("[0]");
 	     token = maps.get("token").toString();
 	     userid = maps.get("userid").toString();
 	     statusCode= res.getStatusCode();
-	 }
+	 }*/
 	 public  static String readFromPropertiesFile(String keyword) throws IOException {
 	     Properties properties = new Properties();
 	     FileInputStream fls = new FileInputStream("src/test/resources/Endpoints.properties");

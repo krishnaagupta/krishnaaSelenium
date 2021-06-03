@@ -17,12 +17,63 @@
       "salary": "5333",
       "pincode": "901234"
     }
-  ]
-  "loginincorrect":
+  ],
+  "loginwrong":
     {
       "username": "krishnaa.gupta@gmail.com",
-      "password": "krishnaa"
+      "password": "hello"
     },
-
+  "data": [
+    {
+      "accountno": "TA-22061984",
+      "departmentno": "1",
+      "pincode": "763291",
+      "salary": "4000"
+    },
+    {
+      "accountno": "99999123",
+      "departmentno": "1",
+      "salary": "5333",
+      "pincode": "901234"
+    }
+  ],
+  "loginblankpwd":
+    {
+      "username": "krishnaa.gupta@gmail.com",
+      "password": " "
+    },
+  "data": [
+    {
+      "accountno": "TA-22061984",
+      "departmentno": "1",
+      "pincode": "763291",
+      "salary": "4000"
+    },
+    {
+      "accountno": "99999123",
+      "departmentno": "1",
+      "salary": "5333",
+      "pincode": "901234"
+    }
+  ],
+"loginwronguseridpwd":
+    {
+      "username": "krishnaa.gupta@yahoo.com",
+      "password": "test"
+    },
+  "data": [
+    {
+      "accountno": "TA-22061984",
+      "departmentno": "1",
+      "pincode": "763291",
+      "salary": "4000"
+    },
+    {
+      "accountno": "99999123",
+      "departmentno": "1",
+      "salary": "5333",
+      "pincode": "901234"
+    }
+  ]
 }
 

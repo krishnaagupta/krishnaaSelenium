@@ -53,7 +53,8 @@ public class TestCase1 {
 	//Helper methods for correct login
 	public static int loginAPI(String url) throws IOException {
 		RestAssured.baseURI=url;
-		ReusableCode.login(ReusableCode.readFromPropertiesFile("login"), ReusableCode.readFromPropertiesFile("contentType"));
+		String bodyJson1="login";
+		ReusableCode.login(ReusableCode.readFromPropertiesFile("login"), ReusableCode.readFromPropertiesFile("contentType"),bodyJson1);
 		//System.out.println(ReusableCode.statusCode);
 		return ReusableCode.statusCode;
 	}
@@ -135,13 +136,13 @@ public class TestCase1 {
 	}
 	
 	//Helper methods for wrong login (wrong password)
-	public static int wrongLoginAPI(String url) throws IOException {
+/*	public static int wrongLoginAPI(String url) throws IOException {
 		RestAssured.baseURI=url;
 		//CreateTest("TC 001 Logging in verification.");
 		ReusableCode.loginWrong(ReusableCode.readFromPropertiesFile("login"), ReusableCode.readFromPropertiesFile("contentType"));
 		System.out.println(ReusableCode.statusCode);
 		return ReusableCode.statusCode;
-	}
+	}*/
 	
 	
 //***********************TESTCASES**********************************************************************************	

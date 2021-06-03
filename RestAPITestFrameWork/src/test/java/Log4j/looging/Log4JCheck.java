@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 
 public  abstract class Log4JCheck {
 
-	public Log4JCheck() {
+	/*public Log4JCheck() {
 		// TODO Auto-generated constructor stub
 	}
 	public static void main(String[] args) {
@@ -19,5 +19,5 @@ public  abstract class Log4JCheck {
 	FileInputStream fileIn= new FileInputStream(System.getProperty("user.dir")+"");
 	prop.load(fileIn);
 	propertyCon
-}
+}*/
 }

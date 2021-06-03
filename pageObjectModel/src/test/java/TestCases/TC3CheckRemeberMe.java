@@ -18,6 +18,7 @@ import Pages.LogInpage;
 public class TC3CheckRemeberMe extends BaseTest {
 
 
+
 	SoftAssert sa = new SoftAssert();
 	public LogInpage  lp;
 	@BeforeMethod
